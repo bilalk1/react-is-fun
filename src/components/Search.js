@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 class Search extends Component {
     componentWillReceiveProps(nextProps, nextState) {
-        console.log(nextProps, nextState)
     }
     render() {
+        const { search } = this.props;
         return (
             <div>
-                Search: <input onChange={this.props.search}></input>
+                <label>Search:</label>
+                <input onChange={search}></input>
             </div>
         )
     }
