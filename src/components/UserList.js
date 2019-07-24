@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Search from './Search';
 import User from './User';
+
 class UserList extends Component {
     state = {
         search: '',
@@ -10,7 +12,7 @@ class UserList extends Component {
         return (
             <div>
                 <h1>Users</h1>
-                Search: <input onChange={e => this.search(e.target.value)}></input>
+                <Search search={this.searchandler} />
                 {this.state.loading
                     ? 'Loading...'
                     : <User users={this.state.users} />
@@ -18,8 +20,10 @@ class UserList extends Component {
             </div>
         )
     }
+    componentWillReceiveProps(props, state) {
+
+    }
     componentWillMount() {
-        // this.fetchData();
 
     }
     shouldComponentUpdate(nextProps, nextState) {
@@ -37,7 +41,6 @@ class UserList extends Component {
 
     }
     componentWillUnmount() {
-        console.log('I am deleting every thing!');
     }
 
     fetchData(search) {
@@ -61,14 +64,14 @@ class UserList extends Component {
                 return u;
             }
         })
-        console.log(this.state.users, users);
 
         this.setState({ users });
 
     }
 
-    search(search) {
-        this.setState({ search: search })
+    searchandler = (event) => {
+        let { nativeEvent: { target: { value } } } = event;
+        this.setState({ search: value })
     }
 
 }
