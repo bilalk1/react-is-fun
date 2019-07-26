@@ -4,11 +4,12 @@ class Search extends Component {
     componentWillReceiveProps(nextProps, nextState) {
     }
     render() {
-        const { search } = this.props;
+        const { searcHandler ,sortHandler} = this.props;
         return (
             <div>
                 <label>Search:</label>
-                <input onChange={search}></input>
+                <input onChange={searcHandler}></input>
+                <label onClick={sortHandler}><u><b>sort</b></u></label>
             </div>
         )
     }
