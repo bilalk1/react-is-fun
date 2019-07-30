@@ -1,15 +1,13 @@
+import { container } from './components/user-list';
 import React, { Component } from 'react';
 import './App.css';
-import UserList from './components/UserList';
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="App" >
-        <UserList users={[]} />
+        <container.userList users={[]} />
       </div>
     )
   }
 }
-
-export default App;
