@@ -16,17 +16,16 @@ export class UserList extends Component {
     this.props.sortUser();
   }
   render() {
-    let { users, fetching, tempUsers } = this.props;
+    let { fetching, tempUsers } = this.props;
     return (
       <div>
-
         <h1>Users : {this.props.simpleText}</h1>
         <Search searcHandler={this.searchHandler} sortHandler={this.sortHandler} />
         {fetching
           ? 'Loading...'
-          : <User users={(tempUsers.length < 1) ? users : tempUsers} />
+          : <User users={tempUsers} />
         }
       </div>
     )
   }
-}
+};

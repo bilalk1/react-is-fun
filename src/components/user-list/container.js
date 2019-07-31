@@ -12,7 +12,7 @@ class UserListContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    tempUsers: userSelectors.getTempUsers(state),
+    tempUsers: userSelectors.sortUser(userSelectors.filterUser(state)),
     fetching: userSelectors.getFetching(state),
     search: userSelectors.getSearch(state),
     users: userSelectors.getUsers(state),
@@ -20,13 +20,11 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  searchInput: (value) => dispatch(userActions.searchInput(value)),
-  fetchUsers: () => { dispatch(userActions.fetchUsers()) },
-  filterUser: () => { dispatch(userActions.filterUser()) },
-  sortUser: () => { dispatch(userActions.sortUser()) }
-
-})
-
+const mapDispatchToProps = {
+  searchInput: userActions.searchInput,
+  fetchUsers: userActions.fetchUsers,
+  filterUser: userActions.filterUser,
+  sortUser: userActions.sortUser,
+}
 
 export const userListContainer = connect(mapStateToProps, mapDispatchToProps)(UserListContainer);

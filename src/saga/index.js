@@ -1,11 +1,11 @@
 
 
 import { all, fork, takeLatest } from 'redux-saga/effects';
-import * as userSaga from './user';
-import * as types from '../type'
+import { handleUsersFetch } from './user';
+import * as types from '../type';
 
 function* watcherSagaUser() {
-  yield takeLatest(types.USER_FETCH, userSaga.handleUsersLoad)
+  yield takeLatest(types.USER_FETCH, handleUsersFetch)
 }
 
 function* watcherSaga() {
