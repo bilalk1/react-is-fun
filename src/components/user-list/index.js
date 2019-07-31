@@ -1,4 +1,3 @@
 import { userListContainer } from './container';
-export const container = {
-  userList: userListContainer
-};
+
+export const UserListContainer = userListContainer
