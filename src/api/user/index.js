@@ -1,11 +1,11 @@
-import { utils } from '../../utils'
+import { handleError, USERS_URL } from '../../utils';
 
 export const fetchUsers = async () => {
   try {
-    const users = await fetch(utils.urls.USERS_URL);
+    const users = await fetch(USERS_URL);
     return await users.json();
   }
   catch (error) {
-    utils.helpers.handleError(error)
+    handleError(error)
   }
 };

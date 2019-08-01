@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Loading } from '../loading';
 import { Search } from '../search';
 import { User } from '../user';
 
@@ -10,22 +12,23 @@ export class UserList extends Component {
   searchHandler = (event) => {
     let { nativeEvent: { target: { value } } } = event;
     this.props.searchInput(value);
-    this.props.filterUser();
-  }
-  sortHandler = () => {
-    this.props.sortUser();
   }
   render() {
-    let { fetching, tempUsers } = this.props;
+    let { users, fetching, sortUser } = this.props;
     return (
       <div>
-        <h1>Users : {this.props.simpleText}</h1>
-        <Search searcHandler={this.searchHandler} sortHandler={this.sortHandler} />
+        <h1>Users :</h1>
+        <Search searcHandler={this.searchHandler} sortHandler={sortUser} />
         {fetching
-          ? 'Loading...'
-          : <User users={tempUsers} />
+          ? <Loading />
+          : <User users={users} />
         }
       </div>
     )
   }
+};
+User.propTypes = {
+  users: PropTypes.array,
+  fetching:PropTypes.bool,
+  sortUser:PropTypes.func
 };

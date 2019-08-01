@@ -1,3 +1,2 @@
-import { userListContainer } from './container';
+export  { userListContainer as UserList } from './container';
 
-export const UserListContainer = userListContainer

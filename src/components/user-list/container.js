@@ -1,30 +1,19 @@
-import * as userSelectors from '../../selectors/user-list'
-import * as userActions from '../../actions/users';
-import React, { Component } from 'react';
-import { UserList } from './user-list';
 import { connect } from 'react-redux';
+import { UserList } from './user-list';
+import { getFetching, getSearch, getUsers } from '../../selectors/user-list'
+import { searchInput, fetchUsers, filterUser, sortUser } from '../../actions/users';
 
-class UserListContainer extends Component {
-  render() {
-    return <UserList {...this.props} />
-  }
-};
-
-const mapStateToProps = (state) => {
-  return {
-    tempUsers: userSelectors.sortUser(userSelectors.filterUser(state)),
-    fetching: userSelectors.getFetching(state),
-    search: userSelectors.getSearch(state),
-    users: userSelectors.getUsers(state),
-
-  }
-};
+const mapStateToProps = (state) => ({
+  fetching: getFetching(state),
+  search: getSearch(state),
+  users: getUsers(state),
+});
 
 const mapDispatchToProps = {
-  searchInput: userActions.searchInput,
-  fetchUsers: userActions.fetchUsers,
-  filterUser: userActions.filterUser,
-  sortUser: userActions.sortUser,
+  searchInput: searchInput,
+  fetchUsers: fetchUsers,
+  filterUser: filterUser,
+  sortUser: sortUser,
 }
 
-export const userListContainer = connect(mapStateToProps, mapDispatchToProps)(UserListContainer);
+export const userListContainer = connect(mapStateToProps, mapDispatchToProps)(UserList);

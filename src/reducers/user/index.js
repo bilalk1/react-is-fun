@@ -1,20 +1,19 @@
 import * as types from '../../type';
-
+import { camel } from 'change-case-object';
 const INITIAL_STATE = {
-  fetching: false,
-  tempUsers: [],
-  fetch: false,
+  fetching: true,
   error: null,
   search: '',
-  users: []
+  users: [],
+  sort: false
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
+  action = camel(action);
   switch (action.type) {
     case types.USER_FETCH: {
       return state = {
         ...state,
-        fetching: true
       }
     }
     case types.USER_FETCH_REJECTED: {
@@ -41,12 +40,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case types.USER_FILTER: {
       return state = {
         ...state,
-        tempUsers: []
       }
     }
     case types.USER_SORT: {
       return state = {
-        ...state
+        ...state,
+        sort: true
       }
     }
     default: {

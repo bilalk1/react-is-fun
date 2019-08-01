@@ -1,7 +1,5 @@
-import * as helperUrl from './urls';
-import * as HelperFunctions from './functions';
+export { USERS_URL } from './urls';
 
-export const utils = {
-    urls: helperUrl,
-    helpers: HelperFunctions
+export const handleError = ({ message }) => {
+  return message
 };
