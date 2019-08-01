@@ -14,4 +14,3 @@ export const Search = ({ searcHandler, sortHandler }) =>
     searcHandler: PropTypes.func,
     sortHandler:PropTypes.func,
   };
-  

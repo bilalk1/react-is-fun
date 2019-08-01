@@ -19,4 +19,3 @@ export const User = ({ users }) =>
   User.propTypes = {
     users: PropTypes.array
   };
-  
