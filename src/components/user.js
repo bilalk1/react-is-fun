@@ -7,7 +7,7 @@ export const User = ({ users }) =>
         <h2>{user.login}</h2>
         <img src={user.avatarUrl} alt='Some Faces are missing' height={100}></img>
         <p>{user.organizationsUrl}</p>
-        <p>{user.received_eventsUrl}</p>
+        <p>{user.receivedEventsUrl}</p>
         <p>{user.reposUrl}</p>
         <p>{user.starredUrl}</p>
         <p>{user.subscriptionsUrl}</p>
@@ -16,6 +16,6 @@ export const User = ({ users }) =>
     )
   )
 
-  User.propTypes = {
-    users: PropTypes.array
-  };
+User.propTypes = {
+  users: PropTypes.array
+};

@@ -1,9 +1,9 @@
 export const getFetching = (state) => {
-    let { users: { fetching } } = selectUserFromState(state);
+    let { fetching } = selectUserFromState(state);
     return fetching;
 }
 export const getSearch = (state) => {
-    let { users: { search } } = selectUserFromState(state);
+    let { search } = selectUserFromState(state);
     return search;
 }
 export const getUsers = (state) => {

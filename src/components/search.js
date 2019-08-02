@@ -10,7 +10,7 @@ export const Search = ({ searcHandler, sortHandler }) =>
       <label onClick={sortHandler}>sort</label>
     </div>
   )
-  Search.propTypes = {
-    searcHandler: PropTypes.func,
-    sortHandler:PropTypes.func,
-  };
+Search.propTypes = {
+  searcHandler: PropTypes.func,
+  sortHandler: PropTypes.func,
+};

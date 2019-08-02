@@ -1,5 +1,5 @@
-import * as types from '../../type';
 import { camel } from 'change-case-object';
+import * as types from '../../type';
 const INITIAL_STATE = {
   fetching: true,
   error: null,
@@ -27,7 +27,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return state = {
         ...state,
         fetching: false,
-        fetch: true,
         users: action.payload
       }
     }
