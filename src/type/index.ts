@@ -38,8 +38,8 @@ export interface IUserListState {
   users : Array<IUser>;
   fetching : boolean;
   search : string;
-  sort? : boolean;
-  error? : IError;
+  sort : boolean;
+  error : string;
 }
 export interface IState {
   user : IUserListState;

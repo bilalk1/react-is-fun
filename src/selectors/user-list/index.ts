@@ -2,6 +2,8 @@ import { IUserListState, IUser, IState } from '../../type';
 
 const selectUserFromState = (state : IState) : IUserListState => state.user;
 export const getFetching = (state : IState) : boolean => selectUserFromState(state).fetching;
+export const getSort = (state : IState) : boolean => selectUserFromState(state).sort;
+export const getError = (state : IState) : string => selectUserFromState(state).error;
 export const getSearch = (state : IState) : string => selectUserFromState(state).search;
 export const getUsers = (state : IState) : Array<IUser> => {
     const { users, search, sort } = selectUserFromState(state);
@@ -13,4 +15,4 @@ export const getFilterUser = (users : Array<IUser>, search : string) : Array<IUs
 
 export const getSortUser = (users : Array<IUser>) : Array<IUser> => [...users].sort(compareObjects);
 const compareObjects = (a : IUser, b : IUser) :  any =>
-    ((a.login.toLowerCase() < b.login!.toLowerCase()) && -1);
+    (a.login.toLowerCase() < b.login.toLowerCase() && -1);

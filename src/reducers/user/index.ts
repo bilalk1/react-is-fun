@@ -11,7 +11,7 @@ import {
 
 const INITIAL_STATE : IUserListState = {
   fetching: true,
-  error: { message: '' },
+  error: '',
   search: '',
   users: [],
   sort: false,
