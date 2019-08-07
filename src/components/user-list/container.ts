@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { UserList } from './user-list';
 import { getFetching, getSearch, getUsers, getSort, getError } from '../../selectors/user-list';
 import { searchInput, fetchUsers, filterUser, sortUser } from '../../actions/users';
-import { IUserListState, IState } from '../../type';
+import { IUserListState, IState } from '../../interfaces';
 
 const mapStateToProps = (state :  IState) : IUserListState => ({
   fetching: getFetching(state),

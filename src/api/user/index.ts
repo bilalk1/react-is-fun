@@ -1,5 +1,5 @@
 import { handleError, USERS_URL } from '../../utils';
-import { IUser } from '../../type';
+import { IUser } from '../../interfaces';
 
 
 export const fetchUsers = async () : Promise<Array<IUser> | string> => {

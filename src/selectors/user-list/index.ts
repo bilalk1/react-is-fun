@@ -1,4 +1,4 @@
-import { IUserListState, IUser, IState } from '../../type';
+import { IUserListState, IUser, IState } from '../../interfaces';
 
 const selectUserFromState = (state : IState) : IUserListState => state.user;
 export const getFetching = (state : IState) : boolean => selectUserFromState(state).fetching;
@@ -14,5 +14,4 @@ export const getFilterUser = (users : Array<IUser>, search : string) : Array<IUs
     users.filter((u : IUser ) => ((u.login.indexOf(search) > -1) && u));
 
 export const getSortUser = (users : Array<IUser>) : Array<IUser> => [...users].sort(compareObjects);
-const compareObjects = (a : IUser, b : IUser) :  any =>
-    (a.login.toLowerCase() < b.login.toLowerCase() && -1);
+const compareObjects = (a : IUser, b : IUser) :  number =>  ((a.login.toLowerCase() < b.login.toLowerCase()) ? -1 : 1 );

@@ -1,10 +1,14 @@
-import { NextFunctionComponent } from 'next';
+import { IAction } from '../interfaces';
+import { Dispatch } from 'react';
+import { MiddlewareAPI } from 'redux';
+import { camalCaseConversion } from '../utils/urls';
 
-// import { camel } from 'change-case-object';
-
-export const camelCaseMiddleware = (store:any) :any =>
-    (next : NextFunctionComponent)  => (action :any)  => {
-        const { payload } = action;
-        // camel(payload);
-        next(action);
-    };
+//TODO Return Types
+export const camelCaseMiddleware = (store : MiddlewareAPI) : any =>
+  (next : Dispatch<IAction>) : any => (action : IAction) : void => {
+    const { payload, type } = action;
+    if (payload && type === 'USER_FETCH_FULFILLED') {
+      action.payload = camalCaseConversion(payload);
+    }
+    next(action);
+  };

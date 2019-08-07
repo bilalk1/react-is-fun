@@ -1,5 +1,5 @@
 import React from 'react';
-import { ISearchProps } from '../type';
+import { ISearchProps } from '../interfaces';
 
 
 export const Search = ({ searcHandler, sortHandler } : ISearchProps) : JSX.Element =>

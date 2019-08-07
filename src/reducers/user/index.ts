@@ -1,13 +1,12 @@
-// import { camel } from 'change-case-object';
 import {
-  IUserListState, USER_FETCH_REJECTED,
+  USER_FETCH_REJECTED,
   USER_FETCH_FULFILLED,
   INPUT_SEARCH,
   USER_FILTER,
   USER_FETCH,
   USER_SORT,
-  IUserAction,
 } from '../../type';
+import { IUserListState , IUserAction } from '../../interfaces';
 
 const INITIAL_STATE : IUserListState = {
   fetching: true,
@@ -18,7 +17,6 @@ const INITIAL_STATE : IUserListState = {
 };
 
 export const reducer = (state : IUserListState = INITIAL_STATE , action : IUserAction) : IUserListState => {
-  // action = camel(action);
   switch (action.type) {
     case USER_FETCH: {
       return state = {
@@ -57,7 +55,7 @@ export const reducer = (state : IUserListState = INITIAL_STATE , action : IUserA
       };
     }
     default: {
-      return state = { ...state };
+      return state;
     }
   }
 };
