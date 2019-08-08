@@ -2,7 +2,7 @@ import { USER_SORT, USER_FILTER, USER_FETCH, INPUT_SEARCH, USER_FETCH_REJECTED, 
 import { ChangeEvent } from 'react';
 export interface IAction {
     type? : string;
-    payload? : string & Array<IUser> & IError;
+    payload? : object & string & Array<IUser> & IError;
 }
 
 export interface IUserAction {
