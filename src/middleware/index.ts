@@ -3,7 +3,7 @@ import { Dispatch } from 'react';
 import { MiddlewareAPI } from 'redux';
 import { camalCaseConversion } from '../utils/urls';
 
-//TODO Return Types
+//TODO Return Types TS
 export const camelCaseMiddleware = (store : MiddlewareAPI) : any =>
   (next : Dispatch<IAction>) : any => (action : IAction) : void => {
     const { payload, type } = action;
