@@ -4,7 +4,7 @@ import { fetchUsers } from '../../api/user';
 import { handleError } from '../../utils';
 import { IUser } from '../../interfaces';
 
-export function* handleUsersSaga () : IterableIterator<any> {
+export function* handleUsersSaga () {
   try {
     const users = yield call(fetchUsers);
     yield put(fetchUsersFulfill(users));
